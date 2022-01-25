@@ -3,14 +3,20 @@ package com.vega.springit.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Comment {
+public class Comment extends Auditable{
     @Id
     @GeneratedValue
     Long id;
     private String body;
+
+    //Link
+    @ManyToOne
+    private Link link;
 
     public Comment() {
     }
