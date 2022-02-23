@@ -17,6 +17,15 @@ public class Link extends Auditable{
     private String title;
     private String url;
 
+    public Link(String title, String url) {
+        this.title = title;
+        this.url = url;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
     //comments
     @OneToMany(mappedBy = "link")
     private List<Comment> comments = new ArrayList<>();
@@ -69,5 +78,7 @@ public class Link extends Auditable{
         return Objects.hash(id, title);
     }
 
-
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+    }
 }
